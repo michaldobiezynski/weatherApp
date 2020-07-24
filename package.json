@@ -12,5 +12,8 @@
   },
   "author": "Michal",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/michaldobiezynski/weatherapp#readme"
+  "homepage": "https://bitbucket.org/michaldobiezynski/weatherapp#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
 }
