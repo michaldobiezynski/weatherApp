@@ -4,17 +4,31 @@ const express = require("express");
 
 const app = express();
 const publicDirectoryPath = path.join(__dirname, "../public/");
-const aboutPageDirectoryPath = path.join(__dirname, "../public/about.html");
-const helpPageDirectoryPath = path.join(__dirname, "../public/help.html");
+
+app.set("view engine", "hbs");
 
 app.use(express.static(publicDirectoryPath));
 
+app.get("", (req, res) => {
+  res.render("index", {
+    title: "Weather App",
+    name: "Michal",
+  });
+});
+
 app.get("/help", (req, res) => {
-  res.send(helpPageDirectoryPath);
+  res.render("help", {
+    title: "Help",
+    message: "If you need help...",
+    name: "Michal",
+  });
 });
 
 app.get("/about", (req, res) => {
-  res.send(aboutPageDirectoryPath);
+  res.render("about", {
+    title: "About me",
+    name: "Michal",
+  });
 });
 
 app.get("/weather", (req, res) => {
