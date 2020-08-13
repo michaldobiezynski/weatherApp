@@ -41,7 +41,27 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
-  res.send({ forecast: "25C, feels like 30C", location: "Edinburgh" });
+  if (!req.query.address) {
+    return res.send({
+      error: "You must provide an address.",
+    });
+  }
+
+  res.send({
+    forecast: "25C, feels like 30C",
+    location: "Edinburgh",
+    address: req.query.address,
+  });
+});
+
+app.get("/products", (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: "You must provide a search term.",
+    });
+  }
+  console.log(req.query.search);
+  res.send({ products: [] });
 });
 
 app.get("/help/*", (req, res) => {
