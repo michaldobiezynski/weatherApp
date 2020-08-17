@@ -84,14 +84,14 @@ app.get("/products", (req, res) => {
 app.get("/help/*", (req, res) => {
   res.render("404", {
     errorMsg: "Help article not found.",
-    name: "Michal",
+    name: "Michal Dobiezynski",
   });
 });
 
 app.get("*", (req, res) => {
   res.render("404", {
     errorMsg: "Page not found.",
-    name: "Michal",
+    name: "Michal Dobiezynski",
   });
 });
 
